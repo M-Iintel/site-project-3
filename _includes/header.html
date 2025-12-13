@@ -6,7 +6,15 @@
     <div class="nav-right">
       <a href="/about/">About</a>
       <a href="/blog/">Blog</a>
-      <button id="mode-toggle">🌙</button>
+      <button id="mode-toggle" aria-label="Toggle dark mode">
+        <img
+          id="mode-icon"
+          src="{{ site.baseurl }}/assets/images/mode-light.svg"
+          data-light="{{ site.baseurl }}/assets/images/mode-light.svg"
+          data-dark="{{ site.baseurl }}/assets/images/mode-dark.svg"
+          alt="Toggle theme"
+        />
+      </button>
     </div>
   </nav>
 </header>

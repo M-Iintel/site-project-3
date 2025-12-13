@@ -46,12 +46,30 @@ body {
 }
 
 #mode-toggle {
-  cursor: pointer;
   background: none;
-  border: 1px solid #111;
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 0.9rem;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+#mode-toggle img {
+  width: 22px;
+  height: 22px;
+  display: block;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+
+/* Hover effect */
+#mode-toggle:hover img {
+  transform: scale(1.2) rotate(15deg);
+  filter: brightness(1.2);
+}
+
+/* Icon animation on switch */
+.icon-switch {
+  transform: rotate(360deg);
 }
 
 /* Responsive adjustments */
