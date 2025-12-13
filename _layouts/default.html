@@ -29,6 +29,21 @@
   </script>
   <script src="{{ site.baseurl }}/assets/js/theme.js"></script>
 
+
+  <script>
+const roles = document.querySelectorAll(".role");
+
+document.addEventListener("mousemove", e => {
+  const x = e.clientX;
+  roles.forEach(role => {
+    const rect = role.getBoundingClientRect();
+    const center = rect.left + rect.width / 2;
+    const distance = Math.abs(x - center);
+    const intensity = Math.max(0, 1 - distance / 400);
+    role.style.color = `rgba(160, 200, 255, ${0.15 + intensity * 0.85})`;
+  });
+});
+</script>
   <body>
     {% include header.html %}
 
