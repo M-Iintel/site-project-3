@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
+  </head>
+  <script>
+    const toggle = document.getElementById("mode-toggle");
+    const body = document.body;
+
+    // Load saved mode
+    if (localStorage.getItem("mode") === "dark") {
+      body.classList.add("dark-mode");
+      toggle.textContent = "☀️";
+    }
+
+    toggle.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      if (body.classList.contains("dark-mode")) {
+        toggle.textContent = "☀️";
+        localStorage.setItem("mode", "dark");
+      } else {
+        toggle.textContent = "🌙";
+        localStorage.setItem("mode", "light");
+      }
+    });
+  </script>
+
+  <body>
+    {% include header.html %}
+
+    <main>{{ content }}</main>
+
+    {% include footer.html %}
+  </body>
+</html>
