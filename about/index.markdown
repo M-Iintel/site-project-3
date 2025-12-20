@@ -6,7 +6,8 @@ title: About
 <section class="about">
   <div class="about-inner">
 
-    <h1>About</h1>
+    <h1 class="animated-title">About</h1>
+
 
     <p class="about-intro">
       Hey! I’m Ibrahim. I’m a junior software developer interested in the

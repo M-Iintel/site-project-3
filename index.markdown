@@ -10,7 +10,8 @@ title: Home
     </div>
 
     <div class="hero-content">
-      <h1>Hey, I’m Ibrahim.</h1>
+    <h1 class="animated-title">Hey, I’m Ibrahim.</h1>
+
 
     <p class="hero-sub">
       I sit at the intersection between

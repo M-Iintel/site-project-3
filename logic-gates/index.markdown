@@ -5,7 +5,8 @@ title: Arduino Logic Gates
 
 <section class="project-hero">
   <div class="project-hero-inner">
-    <h1>Arduino Logic Gates</h1>
+    <h1 class="animated-title">Arduino Logic Gates</h1>
+
 
     <p class="project-hero-sub">
       Exploring fundamental digital logic through physical hardware.
