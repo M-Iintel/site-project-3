@@ -1,7 +1,6 @@
 /* ================= BASE (LIGHT MODE DEFAULTS) ================= */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -11,12 +10,7 @@ body {
 
 /* Utility: Animated Text Gradient */
 .animated-title {
-  background: linear-gradient(
-    90deg,
-    #1a2456 0%,
-    #4f6cff 50%,
-    #1a2456 100%
-  );
+  background: linear-gradient(90deg, #1a2456 0%, #4f6cff 50%, #1a2456 100%);
   background-size: 200% 100%;
   background-position: 50% 50%;
   -webkit-background-clip: text;
@@ -51,13 +45,13 @@ body {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-.nav-right a {
-  font-weight: 500;
-}
-
 .nav-left .nav-name {
   font-size: 1.1rem;
   cursor: pointer;
+}
+
+.nav-right a {
+  font-weight: 500;
 }
 
 .nav-left .nav-name:hover,
@@ -95,11 +89,7 @@ body {
 .hero {
   width: 100%;
   padding: 100px 0;
-  background: radial-gradient(
-    circle at left,
-    rgba(70, 130, 180, 0.2),
-    #f6f7fb 60%
-  );
+  background: radial-gradient(circle at left, rgba(70, 130, 180, 0.2), #f6f7fb 60%);
   color: #0f1117;
 }
 
@@ -197,7 +187,6 @@ body {
   cursor: default;
 }
 
-
 .role {
   display: inline;
   font-size: 3rem;
@@ -205,7 +194,8 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  word-break: break-all;
+  word-break: normal;
+  white-space: nowrap;
   color: rgba(0, 0, 0, 0.35);
   transition: color 0.4s ease, transform 0.25s ease;
 }
@@ -339,7 +329,7 @@ body {
   color: rgba(0, 0, 0, 0.6);
 }
 
-/* ================= PROJECTS (GRID) ================= */
+/* ================= PROJECTS (GRID & GALLERY) ================= */
 .projects {
   padding: 140px 0;
   background: #f1f5f9;
@@ -382,7 +372,6 @@ body {
   transform: translateY(0);
 }
 
-/* Card Hover Effects */
 .project-card:hover {
   transform: scale(1.04);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
@@ -452,14 +441,52 @@ body {
   color: inherit;
 }
 
+/* Gallery & Grid Utilities */
+.project-gallery,
+.project-gallery-grid {
+  width: 100%;
+}
+
+.project-gallery img,
+.project-gallery-grid .project-image {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Logic Gates Grid specific */
+.project-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.project-gallery-card {
+  text-decoration: none;
+}
+
+.project-gallery-grid:hover .project-card {
+  filter: brightness(0.55);
+}
+
+.project-gallery-grid:hover .project-card:hover {
+  filter: brightness(1);
+}
+
+.project-gallery-card h3 {
+  font-size: 1.1rem;
+  margin: 16px 20px 18px;
+}
+
+.project-gallery-card:hover h3 {
+  color: #4f6cff;
+}
+
 /* ================= PROJECT DETAIL PAGE ================= */
 .project-hero {
   padding: 120px 0 80px;
-  background: radial-gradient(
-    circle at left,
-    rgba(70, 130, 180, 0.2),
-    #f6f7fb 60%
-  );
+  background: radial-gradient(circle at left, rgba(70, 130, 180, 0.2), #f6f7fb 60%);
 }
 
 .project-hero-inner {
@@ -488,10 +515,12 @@ body {
 
 .project-content {
   padding: 100px 0;
+  overflow-x: hidden;
 }
 
 .project-content-inner {
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -522,7 +551,6 @@ body {
   border-radius: 6px;
 }
 
-/* Generic Image styling within content */
 .project-content img {
   transition: transform 0.35s ease, filter 0.35s ease;
   will-change: transform;
@@ -556,7 +584,7 @@ body {
   filter: brightness(1.05);
 }
 
-/* Gallery (Consolidated) */
+/* Consolidated Gallery */
 .project-gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -576,7 +604,7 @@ body {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
-  border-radius: 0; /* Handled by figure */
+  border-radius: 0;
   transition: transform 0.35s ease, filter 0.35s ease;
 }
 
@@ -590,37 +618,6 @@ body {
   font-size: 0.9rem;
   text-align: center;
   color: rgba(0, 0, 0, 0.55);
-}
-
-/* ================= PROJECT GALLERY (LOGIC GATES GRID) ================= */
-.project-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  margin-top: 40px;
-  position: relative;
-}
-
-.project-gallery-card {
-  text-decoration: none;
-}
-
-/* Dim siblings like main project grid */
-.project-gallery-grid:hover .project-card {
-  filter: brightness(0.55);
-}
-
-.project-gallery-grid:hover .project-card:hover {
-  filter: brightness(1);
-}
-
-.project-gallery-card h3 {
-  font-size: 1.1rem;
-  margin: 16px 20px 18px;
-}
-
-.project-gallery-card:hover h3 {
-  color: #4f6cff;
 }
 
 /* ================= LATEST ACTIVITY ================= */
@@ -679,7 +676,6 @@ body {
   transition: color 0.3s ease;
 }
 
-/* Hover Gradient for Text */
 .activity-card:hover .activity-text {
   background: linear-gradient(90deg, #1e40af, #2563eb);
   -webkit-background-clip: text;
@@ -697,12 +693,7 @@ body {
 .footer-divider {
   height: 1px;
   margin-bottom: 40px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(0, 0, 0, 0.12),
-    transparent
-  );
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.12), transparent);
 }
 
 .footer-inner {
@@ -754,11 +745,7 @@ body.dark-mode {
 }
 
 body.dark-mode .hero {
-  background: radial-gradient(
-    circle at left,
-    rgba(90, 160, 220, 0.35),
-    #0a0c10 55%
-  );
+  background: radial-gradient(circle at left, rgba(90, 160, 220, 0.35), #0a0c10 55%);
   color: #e9eef7;
 }
 
@@ -790,13 +777,8 @@ body.dark-mode .role.highlight {
   color: rgba(160, 200, 255, 0.9);
 }
 
-/* Dark Mode - About & Career */
 body.dark-mode .about {
-  background: radial-gradient(
-    ellipse at top,
-    rgba(60, 80, 100, 0.35),
-    #0f1117 65%
-  );
+  background: radial-gradient(ellipse at top, rgba(60, 80, 100, 0.35), #0f1117 65%);
   color: #e9eef7;
 }
 
@@ -830,7 +812,6 @@ body.dark-mode .career-right {
   color: rgba(233, 238, 247, 0.7);
 }
 
-/* Dark Mode - Projects */
 body.dark-mode .projects {
   background: #1c1f26;
 }
@@ -856,17 +837,16 @@ body.dark-mode .inline-project-link:hover {
   border-bottom-color: #9aa8ff;
 }
 
-/* Dark Mode - Project Detail */
 body.dark-mode .project-hero {
-  background: radial-gradient(
-    circle at left,
-    rgba(70, 130, 180, 0.25),
-    #0f1117 60%
-  );
+  background: radial-gradient(circle at left, rgba(70, 130, 180, 0.25), #0f1117 60%);
 }
 
 body.dark-mode .project-content p {
   color: rgba(233, 238, 247, 0.8);
+}
+
+body.dark-mode .project-content h2 {
+  border-top-color: rgba(255, 255, 255, 0.12);
 }
 
 body.dark-mode .project-list li {
@@ -877,12 +857,10 @@ body.dark-mode .project-gallery figcaption {
   color: rgba(233, 238, 247, 0.6);
 }
 
-/* Dark Mode - Gallery */
 body.dark-mode .project-gallery-card:hover h3 {
   color: #9fb7ff;
 }
 
-/* Dark Mode - Latest Activity */
 body.dark-mode .activity {
   background: #1c1f26;
 }
@@ -906,14 +884,8 @@ body.dark-mode .activity-card:hover .activity-text {
   -webkit-text-fill-color: transparent;
 }
 
-/* Dark Mode - Footer */
 body.dark-mode .footer-divider {
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.12),
-    transparent
-  );
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.12), transparent);
 }
 
 body.dark-mode .footer-left {
@@ -921,6 +893,22 @@ body.dark-mode .footer-left {
 }
 
 /* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
+  .roles {
+    padding: 90px 0;
+  }
+
+  .roles-inner {
+    max-height: none;
+    line-height: 1.1;
+  }
+
+  .role {
+    font-size: 2.2rem;
+    letter-spacing: 0.08em;
+  }
+}
+
 @media (max-width: 900px) {
   .hero-inner {
     grid-template-columns: 1fr;
@@ -972,6 +960,7 @@ body.dark-mode .footer-left {
   }
 }
 
+/* Consolidated Tablet/Mobile Styles */
 @media (max-width: 768px) {
   .nav-bar {
     flex-direction: column;
@@ -985,12 +974,55 @@ body.dark-mode .footer-left {
     justify-content: flex-start;
   }
 
-  .project-gallery {
-    grid-template-columns: 1fr;
+  .roles {
+    padding: 70px 0;
+  }
+
+  .roles-inner {
+    line-height: 1.2;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .role {
+    font-size: 1.6rem;
+    letter-spacing: 0.06em;
+    display: inline-block;
+    margin-right: 12px;
   }
 
   .project-hero h1 {
     font-size: 2.4rem;
+  }
+
+  .project-content p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .project-content h2 {
+    font-size: 1.35rem;
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .project-list {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .project-list li {
+    text-align: center;
+  }
+
+  .project-gallery,
+  .project-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    transform: none; /* prevent zoom overflow */
   }
 }
 
@@ -998,5 +1030,12 @@ body.dark-mode .footer-left {
   .footer-inner {
     flex-direction: column;
     gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .role {
+    font-size: 1.35rem;
+    letter-spacing: 0.05em;
   }
 }
