@@ -8,7 +8,7 @@ The site serves as a portfolio, learning journal, and analysis space covering my
 # 🌐 Live Website
 
 👉 **Visit the website:**  
-https://m-iintel.github.io/site-project-3/
+https://1brahim-2343.github.io/site-project-3/
 
 ---
 
